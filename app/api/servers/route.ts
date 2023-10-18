@@ -1,5 +1,6 @@
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
+import { MemberRole } from "@prisma/client";
 import { NextResponse } from "next/server";
 import {v4 as uuidv4} from "uuid"
 
@@ -23,10 +24,15 @@ export  async function POST(req: Request){
                 create:[
                     {name: "general", profileId: profile.id}
                 ]
+            },
+            members: {
+                create: [
+                    {profileId: profile.id, role:MemberRole.ADMIN}
+                ]
             }
         }
     })
-        
+        return NextResponse.json(server)
     }
     catch(error){
         console.log("[SEREVERS_POST]",error)
