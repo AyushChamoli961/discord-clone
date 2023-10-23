@@ -36,19 +36,19 @@ export const ServerHeader = (
                         </DropdownMenuItem>
                     )}
                     {isAdmin && (
-                        <DropdownMenuItem className=" px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem onClick ={() => onOpen("editServer", {server})}className=" px-3 py-2 text-sm cursor-pointer">
                             Server Settings
                             <SettingsIcon className="h-4 w-4 ml-auto"/>
                         </DropdownMenuItem>
                     )}
                     {isAdmin && (
-                        <DropdownMenuItem className=" px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem onClick={()=> onOpen("manageMembers", {server})} className=" px-3 py-2 text-sm cursor-pointer">
                             Manage Members
                             <Users className="h-4 w-4 ml-auto"/>
                         </DropdownMenuItem>
                     )}
                     {isModerator && (
-                        <DropdownMenuItem className=" px-3 py-2 text-sm cursor-pointer">
+                        <DropdownMenuItem onClick={()=> onOpen("createChannel", {server})} className=" px-3 py-2 text-sm cursor-pointer">
                             Create Channel
                             <PlusIcon className="h-4 w-4 ml-auto"/>
                         </DropdownMenuItem>

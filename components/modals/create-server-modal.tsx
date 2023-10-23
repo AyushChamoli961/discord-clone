@@ -26,7 +26,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {FileUpload} from "@/components/file-upload"
 import axios from "axios"
 import { useRouter } from "next/navigation";
-import { useModal } from "./use-modal-store";
+import { useModal } from "../../hooks/use-modal-store";
 
 
 const formSchema = z.object({
@@ -62,6 +62,7 @@ const onSubmit = async(values:z.infer<typeof formSchema>) => {
 
         form.reset();
         router.refresh();
+        onClose();
       
     }
     catch(error){
