@@ -40,7 +40,7 @@ export const useChatQuery = ({
         queryKey: [queryKey],
         // @ts-ignore
         queryFn: fetchMessages,
-        // @ts-ignore
+        // @ts-ignorew
         getNextPageParam: (lastPage) => lastPage?.nextCursor,
         fecthInterval: isConnected ? false: 1000
     }
